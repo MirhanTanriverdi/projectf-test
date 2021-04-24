@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MirhanTanriverdi/projectf-test#readme",
   "dependencies": {
     "build": "^0.1.4",
-    "start": "^5.1.0"
+    "start": "^5.1.0",
+    "timespan": "^2.3.0"
   }
 }

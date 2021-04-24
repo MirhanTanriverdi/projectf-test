@@ -25,8 +25,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <link rel="loginpage" href="logp.html">
   </head>
   <body>
+    <a target="_blank">sa</a>
+
+
+
+
+
+
     <script src="app.js"> </script>
     
     <div class="topnav">
@@ -42,12 +50,66 @@
           <li><a href="#" class="nav-links">User</a></li>
           <li><a href="#" class="nav-links">About</a></li>
           <li><a href="#" class="nav-links nav-links-btn">Sign Up</a></li>
-          <li><a href="#" class="nav-links nav-links-btn">Log In</a></li>
+          <li><a href="#" class="nav-links nav-links-btn" onclick="document.getElementById('login').style.display='block'">Log In</a></li>
         </ul>
       </nav>
     </div>
 
-    <style></style>
-    
+
+    <!---for auth-->
+    <div id="login" class="login-page">
+      <div class="form-box">
+        <div class="button-box">
+          <div id="btn"></div>
+          <button type="button" onclick="login()" class="toggle-btn">Log In</button>
+          <button type="button" onclick="signup()" class="toggle-btn">Sign Up</button>
+        </div>
+        <!--Login form-->
+        <form action="/database.rules.json" id="Login" class="input-group-login">
+          <input type="text" class="input-field" placeholder="Enter your E-mail." required>
+          <input type="password" class="input-field" placeholder="Enter your Password." required>
+          <input type="checkbox" class="check-radius"><span>Remember Password</span>
+          <button type="submit" class="submit-btn">Log in</button>
+        </form>
+        <form id="signup" class="input-group-signup">
+          <input type="text" class="input-field" placeholder="First Name" required>
+          <input type="text" class="input-field" placeholder="Last Name" required>
+          <input type="text" class="input-field" placeholder="E-mail" required>
+          <input type="text" class="input-field" placeholder="Password" required>
+          <input type="checkbox" class="check-radius"><span>I agree to everything</span>
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+
+  <script>
+    function writeData() {
+      firebase.database().ref("Post").self({
+        post: document.getElementById("post").value
+      })
+    }
+  </script>
+
+  <div>
+    <form method="GET" style="border: 50%; padding: 25%;">
+      <label> create a post </label>
+      <input type="text" id="postField" placeholder="Write your damn Idea!">
+      <button onclick="writeData()">Share</button>
+    </form>
+  </div> 
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.4.1/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+      https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.4.1/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.4.1/firebase-auth.js"></script>
+    <script src="/__/firebase/8.4.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/8.4.1/firebase-database.js"></script>
+  
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
   </body>
 </html>
